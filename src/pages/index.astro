@@ -4,6 +4,7 @@ import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
 import Gallery from '@/components/Gallery.astro'
 import Galleryvideos from '../Galleryvideos.astro'
+import Galleryimagenes from '../components/Galleryimagenes.astro'
 
 import ExternalScripts from '@/components/ExternalScripts.astro'
 
@@ -25,17 +26,30 @@ let description =
     <div id="wrapper">
       <Header title={title} />
       <Footer title={title} description={description} />
-      <h2>Renders 3D y Edición de Imagenes</h2>
+      <h2 class="margin">Renders 3D</h2>
       <Gallery />
-      <h2>Videos</h2>
+
+      
+      <!-- <Galleryimagenes /> -->
+      <br>
+      <h2 class="margin">Videos</h2>
       <Galleryvideos />
-      <h2>Otros proyectos en los que he trabajado</h2>
-        <a target="_blank" href="https://www.youtube.com/watch?v=2ioJUSw1UTk&t=1136s">Documental de Casa Universitaria Cacao y Chocolate</a>
-        <br>
-        <a target="_blank" href="https://www.youtube.com/watch?v=Np8ucS0qrDk&t=906s">Muestra Artística y Cultural: Exteriorizando el Interior l División Académica de Educación y Artes</a>
-        <br>
-        <a target="_blank" href="https://www.youtube.com/watch?v=nM6DYCnZUX4">Experiencia del GOOGLE DEVFEST en la UJAT Villahermosa</a>
+      <h2 class="margin">Otros proyectos en los que he trabajado</h2>
+        <div class="contenedor">
+          <a class="margin" target="_blank" href="https://www.youtube.com/watch?v=2ioJUSw1UTk&t=1136s">Documental de Casa Universitaria Cacao y Chocolate</a>
+
+          <a class="margin" target="_blank" href="https://www.youtube.com/watch?v=Np8ucS0qrDk&t=906s">Muestra Artística y Cultural: Exteriorizando el Interior l División Académica de Educación y Artes</a>
+
+          <a class="margin" target="_blank" href="https://www.youtube.com/watch?v=nM6DYCnZUX4">Experiencia del GOOGLE DEVFEST en la UJAT Villahermosa</a>
+        </div>
+        
+
     </div>
     <ExternalScripts />
   </body>
 </html>
+
+<style is:global>
+  .margin{margin-left: 12px;}
+  .contenedor{width: 100%; display: flex; flex-direction: column; gap: 10px; padding-bottom: 20px;}
+</style>

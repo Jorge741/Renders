@@ -2,12 +2,16 @@
 import type { ImageMetadata } from 'astro'
 import { Image, getImage } from 'astro:assets'
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*')
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/renders/*')
 const imagePaths = Object.keys(images).filter((imagePath) => {
   return imagePath.startsWith(`/src/assets/`)
 })
-const videos = import.meta.glob('/src/assets/videos/*.{mp4,webm}');
-const videoPaths = Object.keys(videos);
+
+const images1 = import.meta.glob<{ default: ImageMetadata }>('/src/assets/imagenes/*')
+const imagePaths1 = Object.keys(images1).filter((imagePath) => {
+  return imagePath.startsWith(`/src/assets/imagenes/`)
+})
+
 ---
 
 <div id="main">
@@ -28,5 +32,32 @@ const videoPaths = Object.keys(videos);
       )
     })
   }
+  <br>
+  <div class="loquequieras">
+    <h2 class="margin">Edición de Imagenes</h2>
+  </div>
+  
+  <br>
+  {
+    imagePaths1.map(async (imagePath) => {
+      const image = images1[imagePath]()
+      const optimizedImage = await getImage({
+        src: image,
+        width: 1200,
+      })
+
+      return (
+        <article class="thumb">
+          <a class="image" href={optimizedImage.src}>
+            <Image src={image} height="750" alt="Astro Multiverse" />
+          </a>
+        </article>
+      )
+    })
+  }
 
 </div>
+
+<style>
+  .loquequieras{width: 100%; padding-top: 20px;}
+</style>
