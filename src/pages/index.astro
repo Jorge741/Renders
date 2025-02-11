@@ -3,11 +3,13 @@ import BaseHead from '@/components/BaseHead.astro'
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
 import Gallery from '@/components/Gallery.astro'
+import Galleryvideos from '../Galleryvideos.astro'
+
 import ExternalScripts from '@/components/ExternalScripts.astro'
 
-let title = 'POWERED BY CANACINTRA'
+let title = 'Jorge Enrique Jiménez Moreno'
 let description =
-  'Say hello to Multiverse, a slick, one-page gallery design with a fully functional lightbox.'
+  'Este es mi sitio web donde podrás ver los servicios que ofrezco de diseño, modelado y renders en 3D, Edición de Imagenes y Producción y Edición de videos para tus proyectos escolares'
 ---
 
 <!doctype html>
@@ -23,7 +25,16 @@ let description =
     <div id="wrapper">
       <Header title={title} />
       <Footer title={title} description={description} />
+      <h2>Renders 3D y Edición de Imagenes</h2>
       <Gallery />
+      <h2>Videos</h2>
+      <Galleryvideos />
+      <h2>Otros proyectos en los que he trabajado</h2>
+        <a target="_blank" href="https://www.youtube.com/watch?v=2ioJUSw1UTk&t=1136s">Documental de Casa Universitaria Cacao y Chocolate</a>
+        <br>
+        <a target="_blank" href="https://www.youtube.com/watch?v=Np8ucS0qrDk&t=906s">Muestra Artística y Cultural: Exteriorizando el Interior l División Académica de Educación y Artes</a>
+        <br>
+        <a target="_blank" href="https://www.youtube.com/watch?v=nM6DYCnZUX4">Experiencia del GOOGLE DEVFEST en la UJAT Villahermosa</a>
     </div>
     <ExternalScripts />
   </body>

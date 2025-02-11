@@ -1,0 +1,20 @@
+---
+import type { ImageMetadata } from 'astro'
+import { Image, getImage } from 'astro:assets'
+
+
+const videos = import.meta.glob('/src/assets/videos/*.{mp4,webm}');
+const videoPaths = Object.keys(videos);
+
+---
+
+<div id="videos">
+    {
+      videoPaths.map((videoPath) => (
+        <video controls muted controlsList="nodownload" width="720" height="480">
+          <source src={videoPath} type={videoPath.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
+          Tu navegador no soporta la etiqueta <code>video</code>.
+        </video>
+      ))
+    }
+  </div>

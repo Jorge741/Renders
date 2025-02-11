@@ -6,6 +6,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*')
 const imagePaths = Object.keys(images).filter((imagePath) => {
   return imagePath.startsWith(`/src/assets/`)
 })
+const videos = import.meta.glob('/src/assets/videos/*.{mp4,webm}');
+const videoPaths = Object.keys(videos);
 ---
 
 <div id="main">
@@ -26,4 +28,5 @@ const imagePaths = Object.keys(images).filter((imagePath) => {
       )
     })
   }
+
 </div>
